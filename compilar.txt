@@ -1,0 +1,4 @@
+asegurarse de que todo este en la misma carpeta! (.bin y tdo)
+para compilar: g++ -std=c++17 main.cpp leer_archivo.cpp insertion_sort.cpp quick_sort.cpp sorting_estandar.cpp -o entregable               
+luego de crear el entregable pomer: .\entregable.exe                                                    
+Nombre del archivo binario: insertar el path del .bin, ej: C:\Users\ms_mc\Downloads\edd\entregable2\numeros.bin
