@@ -3,10 +3,9 @@
 #include <vector>
 #include <string>
 #include <cstdint>
-#include <chrono>    // Para la medición de tiempo
-#include <algorithm> // Para std::min en mensajes de print_first_elements (si no está ya en file_io.cpp)
+#include <chrono>    
+#include <algorithm> 
 #include "leer_archivo.h"
-
 #include "insertion_sort.h"
 #include "quick_sort.h"
 #include "sorting_estandar.h"
@@ -33,7 +32,7 @@ int main() {
         vector<int32_t> numeros_para_insertion = numeros_originales; // Copia para Insertion Sort
         cout << "\n--- Probando Insertion Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_insertion, 10); // Imprime menos elementos para brevedad
+        print_first_elements(numeros_para_insertion, 30); // Imprime menos elementos para brevedad
 
         auto start_time = chrono::high_resolution_clock::now();
         insertion_sort(numeros_para_insertion);
@@ -41,7 +40,7 @@ int main() {
         chrono::duration<double, milli> tiempo_insertion = end_time - start_time;
 
         cout << "Despues de ordenar con Insertion Sort:" << endl;
-        print_first_elements(numeros_para_insertion, 10);
+        print_first_elements(numeros_para_insertion, 30);
         cout << "Tiempo de Insertion Sort: " << tiempo_insertion.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
@@ -51,7 +50,7 @@ int main() {
         vector<int32_t> numeros_para_quick = numeros_originales; // Copia para Quick Sort
         cout << "\n--- Probando Quick Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_quick, 10);
+        print_first_elements(numeros_para_quick, 30);
 
         auto start_time = chrono::high_resolution_clock::now();
         quick_sort(numeros_para_quick);
@@ -59,7 +58,7 @@ int main() {
         chrono::duration<double, milli> tiempo_quick = end_time - start_time;
 
         cout << "Despues de ordenar con Quick Sort:" << endl;
-        print_first_elements(numeros_para_quick, 10);
+        print_first_elements(numeros_para_quick, 30);
         cout << "Tiempo de Quick Sort: " << tiempo_quick.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
@@ -69,7 +68,7 @@ int main() {
         vector<int32_t> numeros_para_std = numeros_originales; // Copia para std::sort
         cout << "\n--- Probando Biblioteca Sort (std::sort) ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_std, 10);
+        print_first_elements(numeros_para_std, 30);
 
         auto start_time = chrono::high_resolution_clock::now();
         biblioteca_sort(numeros_para_std);
@@ -77,7 +76,7 @@ int main() {
         chrono::duration<double, milli> tiempo_std = end_time - start_time;
 
         cout << "Despues de ordenar con Biblioteca Sort:" << endl;
-        print_first_elements(numeros_para_std, 10);
+        print_first_elements(numeros_para_std, 30);
         cout << "Tiempo de Biblioteca Sort: " << tiempo_std.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
@@ -88,7 +87,7 @@ int main() {
         vector<int32_t> numeros_para_merge = numeros_originales; // Copia para std::sort
         cout << "\n--- Probando merge Sort (std::sort) ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_merge, 10);
+        print_first_elements(numeros_para_merge, 30);
 
         auto start_time = chrono::high_resolution_clock::now();
         merge_sort(numeros_para_merge);
@@ -96,7 +95,7 @@ int main() {
         chrono::duration<double, milli> tiempo_std = end_time - start_time;
 
         cout << "Despues de ordenar con merge Sort:" << endl;
-        print_first_elements(numeros_para_merge, 10);
+        print_first_elements(numeros_para_merge, 30);
         cout << "Tiempo de merge Sort: " << tiempo_std.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
@@ -107,7 +106,7 @@ int main() {
         vector<int32_t> numeros_para_heap = numeros_originales; // Copia para std::sort
         cout << "\n--- Probando heap Sort (std::sort) ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_heap, 10);
+        print_first_elements(numeros_para_heap, 30);
 
         auto start_time = chrono::high_resolution_clock::now();
         heap_sort(numeros_para_heap);
@@ -115,7 +114,7 @@ int main() {
         chrono::duration<double, milli> tiempo_std = end_time - start_time;
 
         cout << "Despues de ordenar con heap Sort:" << endl;
-        print_first_elements(numeros_para_heap, 10);
+        print_first_elements(numeros_para_heap, 30);
         cout << "Tiempo de heap Sort: " << tiempo_std.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
