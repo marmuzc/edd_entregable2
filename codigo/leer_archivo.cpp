@@ -4,9 +4,6 @@
 #include <algorithm> // Para std::min
 using namespace std;
 
-const size_t MAX_ELEMENTS_TO_READ = 50; 
-const size_t MAX_ELEMENTS_TO_PRINT = 50;
-
 vector<int32_t> leer_archivo(const string& filename) {
     vector<int32_t> datos;
     ifstream file(filename, ios::binary);
@@ -17,7 +14,7 @@ vector<int32_t> leer_archivo(const string& filename) {
 
     int32_t num;
     size_t count = 0;
-    while (file.read(reinterpret_cast<char*>(&num), sizeof(num)) && count < MAX_ELEMENTS_TO_READ) {
+    while (file.read(reinterpret_cast<char*>(&num), sizeof(num))) {
         datos.push_back(num);
         ++count;
     }
