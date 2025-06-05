@@ -11,6 +11,7 @@
 #include "sorting_estandar.h"
 #include "merge_sort.h"
 #include "heap_sort.h"
+#include "bubble_sort.h"
 
 
 int main() {
@@ -118,7 +119,24 @@ int main() {
         cout << "Tiempo de heap Sort: " << tiempo_std.count() << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
+    // --- Probar bubble sort (std::sort) ---
+    if (!numeros_originales.empty()) {
+        vector<int32_t> numeros_para_bubble = numeros_originales; // Copia para std::sort
+        cout << "\n--- Probando Bubble Sort (std::sort) ---" << endl;
+        cout << "Antes de ordenar:" << endl;
+        print_first_elements(numeros_para_bubble, 30);
 
+        auto start_time = chrono::high_resolution_clock::now();
+        bubble_sort(numeros_para_bubble);
+        auto end_time = chrono::high_resolution_clock::now();
+        chrono::duration<double, milli> tiempo_std = end_time - start_time;
+
+        cout << "Despues de ordenar con heap Sort:" << endl;
+        print_first_elements(numeros_para_bubble, 30);
+        cout << "Tiempo de bubble Sort: " << tiempo_std.count() << " ms" << endl;
+        cout << "---------------------------------------------" << endl;
+    }
+    
 
 
 
