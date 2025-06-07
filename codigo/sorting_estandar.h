@@ -4,8 +4,8 @@
 #include <vector>
 #include <cstdint>
 #include <algorithm>
-using namespace std;
 
-void biblioteca_sort(vector<int32_t>& elementos);
+
+void biblioteca_sort(std::vector<int32_t>& elementos);
 
 #endif 

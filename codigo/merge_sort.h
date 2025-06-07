@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <cstdint>
-using namespace std;
 
-void merge_sort(vector<int32_t>& elementos);
+
+void merge_sort(std::vector<int32_t>& elementos);
 
 #endif

@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <cstdint>
-using namespace std;
 
-void insertion_sort(vector<int32_t>& elementos);
+
+void insertion_sort(std::vector<int32_t>& elementos);
 
 #endif 

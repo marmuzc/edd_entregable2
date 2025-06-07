@@ -4,8 +4,9 @@
 #include <vector>
 #include <cstdint>
 #include <algorithm> 
-using namespace std;
 
-void quick_sort(vector<int32_t>& elementos);
+
+void quick_sort(std::vector<int32_t>& elementos);
+
 
 #endif 

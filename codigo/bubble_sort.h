@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdint>
 
+
 void bubble_sort(std::vector<int32_t>& elementos);
 
 #endif

@@ -1,7 +1,7 @@
 #include "insertion_sort.h"
 
 // Insertion sort
-void insertion_sort(vector<int32_t>& elementos) {
+void insertion_sort(std::vector<int32_t>& elementos) {
     for (size_t i = 1; i < elementos.size(); ++i) {
         //recorrer desde el segundo elemento del vector hasta el final
         int32_t valor_actual = elementos[i]; //guardar el valor actual que queremos insertar en la parte ordenada
@@ -15,3 +15,4 @@ void insertion_sort(vector<int32_t>& elementos) {
         elementos[j + 1] = valor_actual; //insertamos valor actual en la posicion correcta, despues del elemento menor o igual
     }
 }
+

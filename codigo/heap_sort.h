@@ -3,8 +3,9 @@
 
 #include <vector>
 #include <cstdint>
-using namespace std;
 
-void heap_sort(vector<int32_t>& elementos);
+
+void heap_sort(std::vector<int32_t>& elementos);
+
 
 #endif
