@@ -4,16 +4,13 @@
 #include <string>
 #include <cstdint>
 #include <chrono>    
-#include <algorithm> 
 #include "leer_archivo.h"
 #include "insertion_sort.h"
 #include "quick_sort.h"
 #include "sorting_estandar.h"
 #include "merge_sort.h"
 #include "heap_sort.h"
-#include "bubble_sort.h"
-#include <vector>   
-#include <string>
+#include "tim_sort.h"
 using namespace std; 
 
 
@@ -33,16 +30,24 @@ int main() {
     cout << "=============================================" << endl;
 
 
+    // Flags para activar/desactivar cada algoritmo (en caso de que se este demorando mucho por sus peores casos)
+    bool ejecutar_insertion = true;
+    bool ejecutar_quick = true;
+    bool ejecutar_std = true;
+    bool ejecutar_merge = true;
+    bool ejecutar_heap = true;
+    bool ejecutar_tim = true;
+
     double tiempo_insertion_ms = 0.0; // variable para almacenar el tiempo de ordenamiento de insertion sort 
     double tiempo_qs_ms = 0.0; 
     double tiempo_std_ms = 0.0; 
     double tiempo_ms_ms = 0.0; 
     double tiempo_hs_ms = 0.0; 
-    double tiempo_bs_ms = 0.0; 
+    double tiempo_ts_ms = 0.0; 
     
     
     // insertion sort
-    if (!numeros_originales.empty()) {
+    if (ejecutar_insertion && !numeros_originales.empty()) {
         vector<int32_t> numeros_para_insertion = numeros_originales; //hacemos una copia del vector original para cada prueba
         cout << "\n--- Probando Insertion Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
@@ -60,7 +65,7 @@ int main() {
     }
 
     // quick sort
-    if (!numeros_originales.empty()) {
+    if (ejecutar_quick && !numeros_originales.empty()) {
         vector<int32_t> numeros_para_quick = numeros_originales; //copia para quick sort
         cout << "\n--- Probando Quick Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
@@ -78,7 +83,7 @@ int main() {
     }
 
     // probar para sort de c++
-    if (!numeros_originales.empty()) {
+    if (ejecutar_std && !numeros_originales.empty()) {
         vector<int32_t> numeros_para_std = numeros_originales; 
         cout << "\n--- Probando Biblioteca Sort (std::sort) ---" << endl;
         cout << "Antes de ordenar:" << endl;
@@ -97,7 +102,7 @@ int main() {
 
 
      // Merge sort 
-    if (!numeros_originales.empty()) {
+    if (ejecutar_merge && !numeros_originales.empty()) {
         vector<int32_t> numeros_para_merge = numeros_originales; // copia para merge sort
         cout << "\n--- Probando Merge Sort  ---" << endl;
         cout << "Antes de ordenar:" << endl;
@@ -116,7 +121,7 @@ int main() {
 
 
      // Heap sort ---
-    if (!numeros_originales.empty()) {
+    if (ejecutar_heap && !numeros_originales.empty()) {
         vector<int32_t> numeros_para_heap = numeros_originales; // copia para heap sort
         cout << "\n--- Probando Heap Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
@@ -132,23 +137,26 @@ int main() {
         cout << "Tiempo de Heap Sort: " << tiempo_hs_ms << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
-    // Bubble sort
-    if (!numeros_originales.empty()) {
-        vector<int32_t> numeros_para_bubble = numeros_originales; 
-        cout << "\n--- Probando Bubble Sort ---" << endl;
+
+
+    // Tim Sort
+    if (ejecutar_tim && !numeros_originales.empty()) {
+        vector<int32_t> numeros_para_tim = numeros_originales; // copia para tim sort
+        cout << "\n--- Probando Tim Sort ---" << endl;
         cout << "Antes de ordenar:" << endl;
-        print_first_elements(numeros_para_bubble, 30);
+        print_first_elements(numeros_para_tim, 30);
 
         auto start_time = chrono::high_resolution_clock::now();
-        bubble_sort(numeros_para_bubble);
+        tim_sort(numeros_para_tim);
         auto end_time = chrono::high_resolution_clock::now();
-        tiempo_bs_ms = chrono::duration<double, milli>(end_time - start_time).count();
+        tiempo_ts_ms = chrono::duration<double, milli>(end_time - start_time).count();
 
-        cout << "Despues de ordenar con Bubble Sort:" << endl;
-        print_first_elements(numeros_para_bubble, 30);
-        cout << "Tiempo de Bubble Sort: " << tiempo_bs_ms << " ms" << endl;
+        cout << "Despues de ordenar con Tim Sort:" << endl;
+        print_first_elements(numeros_para_tim, 30);
+        cout << "Tiempo de Tim Sort: " << tiempo_ts_ms << " ms" << endl;
         cout << "---------------------------------------------" << endl;
     }
+    
     // Resumen de tiempos
     cout << "\n=============================================" << endl;  
     cout << "Resumen de tiempos de ordenamiento:" << endl;
@@ -157,7 +165,7 @@ int main() {
     cout << "Biblioteca Sort (std::sort): " << tiempo_std_ms << " ms" << endl;
     cout << "Merge Sort: " << tiempo_ms_ms << " ms" << endl;
     cout << "Heap Sort: " << tiempo_hs_ms << " ms" << endl;
-    cout << "Bubble Sort: " << tiempo_bs_ms << " ms" << endl;
+    cout << "Tim Sort: " << tiempo_ts_ms << " ms" << endl;
 
     cout << "=============================================" << endl;
     cout << "Todos los algoritmos ejecutados." << endl;

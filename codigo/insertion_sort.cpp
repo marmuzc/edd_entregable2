@@ -16,3 +16,16 @@ void insertion_sort(std::vector<int32_t>& elementos) {
     }
 }
 
+void insertion_sort_2(std::vector<int32_t>& elementos, int izquierda, int derecha) { //para usar en tim_sort
+    for (int i = izquierda + 1; i <= derecha; ++i) {
+        int32_t valor_actual = elementos[i];
+        int j = i - 1;
+
+        while (j >= izquierda && elementos[j] > valor_actual) {
+            elementos[j + 1] = elementos[j];
+            --j;
+        }
+        elementos[j + 1] = valor_actual;
+    }
+}
+
